@@ -1,0 +1,70 @@
+import turtle
+
+#definiendo las funciones para dibujar el tablero
+
+def draw_box(t,x,y,size,fill_color):
+   t.penup()
+   t.goto(x,y) 
+   t.pendown()
+
+   t.fillcolor(fill_color)
+   t.begin_fill() #colorear los recuadros
+   
+   for i in range(3,9):
+     board.forward(size) 
+     board.right(90) 
+
+   t.end_fill() #termina la definicion de la funcion
+
+def draw_board():
+   square_color = 'lightblue'
+   start_x = 50  
+   start_y = -50 
+   box_size = 55 
+   for i in range(0,13):
+     for j in range(0,4):
+       draw_box(board,start_x+j*box_size,start_y+i*box_size,box_size,square_color)
+       square_color = 'lightblue' if square_color == 'lightgrey' else 'lightgrey'
+       
+     square_color = 'lightblue' if square_color == 'lightgrey' else 'lightgrey'
+
+#comandos para dibujar el tablero
+
+board = turtle.Turtle()
+board.speed(0)
+draw_board()
+turtle.done()
+
+#comandos de la tortuga 1 (tess)
+
+tess = turtle.Turtle()
+tess.hideturtle()
+tess.shape('turtle')
+tess.color('magenta')
+tess.speed(3)
+tess.penup()
+tess.goto(77,-80)
+tess.left(90)
+tess.showturtle()
+
+tess.penup()                
+size = 20
+respuesta = int(input("Cuantos casilleros debe avanzar Tess?: "))
+tess.forward(respuesta*55)
+
+#comandos de la tortuga 2 (ben)
+
+ben = turtle.Turtle()
+ben.hideturtle()
+ben.shape('turtle')
+ben.color('yellow')
+ben.speed(3)
+ben.penup()
+ben.goto(187,-80)
+ben.left(90)
+ben.showturtle()
+
+ben.penup()
+size = 20
+respuesta2 = int(input("Cuantos casilleros debe avanzar Ben?: "))
+ben.forward(respuesta2*55)
