@@ -1,0 +1,139 @@
+import turtle
+
+#definiendo las funciones para dibujar el tablero
+
+def draw_box(t,x,y,size,fill_color):
+   t.penup()
+   t.goto(x,y) 
+   t.pendown()
+
+   t.fillcolor(fill_color)
+   t.begin_fill()
+   
+   for i in range(3,9):
+     board.forward(size) 
+     board.right(90) 
+
+   t.end_fill() 
+
+def draw_board():
+   box_color = 'lightblue'
+   start_x = 50  
+   start_y = -50 
+   box_size = 55 
+   for i in range(0,13):
+     for j in range(0,4):
+       draw_box(board,start_x+j*box_size,start_y+i*box_size,box_size,box_color)
+       box_color = 'lightblue' if box_color == 'lightgrey' else 'lightgrey'
+       
+     box_color = 'lightblue' if box_color == 'lightgrey' else 'lightgrey'
+
+#comandos para dibujar el tablero
+
+board = turtle.Turtle()
+board.speed(0)
+draw_board()
+turtle.done()
+
+
+#comandos de la tortuga 1 (tess)
+
+tess = turtle.Turtle()
+tess.hideturtle()
+tess.shape('turtle')
+tess.color('magenta')
+tess.speed(3)
+tess.penup()
+tess.goto(77,-135)
+tess.left(90)
+tess.showturtle()
+tess.forward(55)
+
+
+#comandos de la tortuga 2 (ben)
+
+ben = turtle.Turtle()
+ben.hideturtle()
+ben.shape('turtle')
+ben.color('yellow')
+ben.speed(3)
+ben.penup()
+ben.goto(187,-135)
+ben.left(90)
+ben.showturtle()
+ben.forward(55)
+
+#delimitar preguntas
+
+questionstess = {1:{1:"Solo las fuerzas conservativas realizan trabajo. Responda 'v' si es verdadero o 'f' si es falso:",2:"El trabajo de las fuerzas no conservativas disminuye la energia potencial. Responda 'v' si es verdadero o 'f' si es falso:"},2:{1:"Si actuan solo fuerzas no conservativas que realizan trabajo positivo, aumenta la energia cinetica de la particula. Responda 'v' si es verdadero o si es 'f':",2:"Cuando se levanta un libro desde el escritorio hasta un estante mas elevado, el trabajo depende del tiempo invertido en el proceso.Responda 'v' si es verdadero o si es 'f':"},3:{1:"En auto con aceleracion constante. Un pasajero deja caer una moneda al suelo. La aceleracion ascensor asciende de la moneda, observada por el pasajero, es g. Responda 'v' si es verdadero o 'f' si es falso:",2:"Si actuan solo fuerzas no conservativas que realizan trabajo positivo, aumenta la energia cinetica de la particula. Responda 'v' si es verdadero o 'f' si es falso:"},4:{1:"Una pesa pende de una cuerda atada al techo de un elevador. Si el elevador esta en reposo, la tension de la cuerda es T. Entonces, cuando el elevador desciende disminuyendo su rapidez, la tension de la cuerda T es menor que T.Responda 'v' si es verdadero o 'f' si es falso:",2:"Una cuerda de masa despreciable pasa por una polea carente de friccion. Un nino se cuelga de un lado de la cuerda y del otro lado de la cuerda hay un espejo colgado que tiene el mismo peso que el nino. Inicialmente, el nino puede verse reflejado en el espejo. Entonces, el nino debe trepar por la cuerda para evitar reflejarse en el espejo. Responda 'v' si es verdadero o 'f' si es falso:"},5:{1:"Deseas mover una caja. El coeficiente de rozamiento estatico entre la caja y el suelo es el mismo que entre las suelas de tus zapatos y el suelo. Aunque la masa de la caja sea mayor que tu masa, es posible lograrlo si, ademas de empujar horizontalmente, empujas (levemente) la caja hacia arriba. Responda 'v' si es verdadero o 'f' si es falso:",2:"Los corredores de autos aumentan la velocidad al tomar una curva. (No intentarlo en carreteras convencionales y/o llantas convencionales). De esa forma, evitan derrapar sobre la pista. Responda 'v' si es verdadero o 'f' si es falso:"}}
+
+answerstess = {1:{1:'f',2:'f'},2:{1:'v',2:'f'},3:{1:'f',2:'v'},4:{1:'f',2:'f'},5:{1:'v',2:'v'}}
+
+questionsben = {1:{1:"Un trabajo positivo realizado por una fuerza conservativa disminuye la energia potencial asociada a dicha fuerza. Responda 'v' si es verdadero o 'f' si es falso:",2:"Si actuan solo fuerzas conservativas la energia cinetica de la particula no cambia. Responda 'v' si es verdadero o 'f' si es falso:"},2:{1:"Si actuan solo fuerzas no conservativas que realizan trabajo positivo, aumenta la energia cinetica de la particula. Responda 'v' si es verdadero o si es 'f':",2:"Cuando se levanta un libro desde el escritorio hasta un estante mas elevado, el trabajo depende del tiempo invertido en el proceso.Responda 'v' si es verdadero o si es 'f':"},3:{1:"Un objeto puede aumentar su velocidad cuando su aceleracion decrece. Responda 'v' si es verdadero o 'f' si es falso:",2:"La aceleracion de un proyectil puede representarse por una componente tangencial a la trayectoria y una componente radial (perpendicular a la tangencial). La componente radial de la aceleracion que sufre un proyectil es nula. Responda 'v' si es verdadero o 'f' si es falso:"},4:{1:"Un pajaro se posa sobre un alambre estirado. La tension del alambre cambia en una cantidad mayor al peso del pajaro.Responda 'v' si es verdadero o 'f' si es falso:",2:"Deseas mover una caja empujandola horizontalmente. El coeficiente de rozamiento estatico entre la caja y el suelo es el mismo que entre las suelas de tus zapatos y el suelo. Si la masa de la caja es mayor que tu masa, patinaras sobre el suelo, antes de lograr tu objetivo. Responda 'v' si es verdadero o 'f' si es falso:"},5:{1: "Deseas mover una caja. El coeficiente de rozamiento estatico entre la caja y el suelo es el mismo que entre las suelas de tus zapatos y el suelo. Aunque la masa de la caja sea mayor que tu masa, es posible lograrlo si, ademas de empujar horizontalmente, empujas (levemente) la caja hacia arriba. Responda 'v' si es verdadero o 'f' si es falso:",2:"Los corredores de autos aumentan la velocidad al tomar una curva. (No intentarlo en carreteras convencionales y/o llantas convencionales). De esa forma, evitan derrapar sobre la pista. Responda 'v' si es verdadero o 'f' si es falso:"}}
+
+answersben= {1:{1:'v',2:'f'},2:{1:'f',2:'v'},3:{1:'v',2:'v'},4:{1:'v',2:'v'},5:{1:'v',2:'f'}}
+
+
+#comienzo del juego
+
+x=0
+y=0
+
+while x <= 14 and y <= 14:
+   tess.penup()                
+   size = 20
+   tess.speed(1)
+   level_tess = int(input("Del 1 al 5, que nivel de conocimientos crees tener, Tess?: "))
+   print "Nivel",level_tess,": La pregunta es la siguiente..."
+   m = 1
+   print(questionstess[level_tess][m])
+   answer1 = str(input("Respuesta: "))
+   if x < 14:
+     if m < 3:
+       if answer1 == answerstess[level_tess][m]:
+         m = m + 1
+         print "Tess avanza", level_tess,"casilla(s)."
+         tess.forward(level_tess*55)
+         x = x + level_tess
+       else:
+         if x == 0:
+           print "Lo sentimos, permanecera en su casilla."
+         else:
+           print "Lo sentimos, retrocede un espacio."
+           tess.forward(-55)
+     else:
+       print "Escoge otro nivel"
+   elif x == 14:
+     print "Tess gana el juego"
+     print "La fuente es: https://archive.org/details/FisicaUniversitariaSearsZemansky13aEdicionVol1"
+     sys.exit("Se acabo el juego")
+
+
+   ben.penup()
+   size = 20
+   ben.speed(1)
+   level_ben = int(input("Del 1 al 5, que nivel de conocimientos crees tener, Ben?: "))
+   print "Nivel",level_ben,": La pregunta es la siguiente..."
+   n = 1
+   print(questionsben[level_ben][n])
+   answer2 = str(input("Respuesta: "))
+   if y < 14:
+     if n < 3:
+       if answer2 == answersben[level_ben][n]:
+         n = n + 1
+         print "Ben avanza", level_ben,"casilla(s)."
+         ben.forward(level_ben*55)
+         y = y + level_ben
+       else:
+         if y == 0:
+           print "Lo sentimos, permanecera en su casilla."
+         else:
+           print "Lo sentimos, retrocede un espacio."
+           ben.forward(-55)
+     else:
+       print "Escoge otro nivel"
+   elif y == 14:
+     print "Ben gana el juego"
+     print "La fuente es: https://archive.org/details/FisicaUniversitariaSearsZemansky13aEdicionVol1"
+     sys.exit("Se acabo el juego")
+   
